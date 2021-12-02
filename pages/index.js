@@ -1,6 +1,8 @@
+import { HomeIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "../components/Header";
+import HeaderIcon from "../components/HeaderIcon";
 
 export default function Home() {
   return (

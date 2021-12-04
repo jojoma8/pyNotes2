@@ -66,9 +66,10 @@ function Header() {
           width="40"
           height="40"
           layout="fixed"
+          alt="user profile image from Facebook"
         />
 
-        <p className="whitepace-nowrap fobt-semibold pr-3">
+        <p className="whitespace-nowrap font-semibold pr-3">
           {session.user.name}
         </p>
         <ViewGridIcon className="icon" />

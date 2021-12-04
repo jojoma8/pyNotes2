@@ -10,6 +10,7 @@ function SidebarRow({ src, Icon, title }) {
           width={30}
           height={30}
           layout="fixed"
+          alt="user Facebook profile image"
         />
       )}
       {Icon && <Icon className="h-8 w-8 text-blue-500" />}

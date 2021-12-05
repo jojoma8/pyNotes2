@@ -14,13 +14,15 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import HeaderIcon from "./HeaderIcon";
+import { signOut, useSession } from "next-auth/react";
 
 function Header() {
+  const { data: session } = useSession();
+
   return (
     <div
       className="sticky top-0 z-50 bg-white flex items-center p-2 
-      lf:px-5
-    shadow-md"
+      lf:px-5 shadow-md"
     >
       <h1>pyNotes</h1>
 
@@ -31,6 +33,7 @@ function Header() {
           width={60}
           height={40}
           layout="fixed"
+          alt="user Facebook profile image"
         />
         <div className="flex ml-2 items-center rounded-full bg-gray-100 p-2">
           <SearchIcon className="h-6 text-gray-600" />
@@ -55,7 +58,19 @@ function Header() {
       {/* Right */}
       <div className="flex items-center sm:space-x-2 justify-end">
         {/* Profile Pic */}
-        <p className="whitepace-nowrap fobt-semibold pr-3">UserName</p>
+        <Image
+          onClick={signOut}
+          className="rounded-full cursor-pointer"
+          src={session.user.image}
+          width="40"
+          height="40"
+          layout="fixed"
+          alt="user profile image from Facebook"
+        />
+
+        <p className="whitespace-nowrap font-semibold pr-3">
+          {session.user.name}
+        </p>
         <ViewGridIcon className="icon" />
         <ChatIcon className="icon" />
         <BellIcon className="icon" />
